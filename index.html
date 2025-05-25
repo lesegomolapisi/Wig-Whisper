@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WigWhisper - Elegance in Every Strand</title>
+  <link rel="stylesheet" href="sytle.css" />
+
+  <!--internal css-->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Helvetica Neue', sans-serif;
+      overflow: initial;
+    }
+
+
+    .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  padding: 1em 0;
+}
+
+.navbar ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Fallback for browsers that don't support object-fit */
+    @supports not (object-fit: cover) {
+      .video-bg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .overlay {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      transition: opacity 0.5s ease;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 0.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    p {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      margin-bottom: 2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.2s;
+    }
+
+    .cta-button {
+      padding: 0.8em 2em;
+      font-size: 1.1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.4s;
+    }
+
+    .cta-button:hover {
+      background-color: #e255a1;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Loading animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 105, 180, 0.3);
+      border-radius: 50%;
+      border-top-color: #ff69b4;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .overlay {
+        padding: 0 20px;
+      }
+      
+      .video-bg {
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loader">
+    <div class="spinner"></div>
+  </div> 
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+    <li><a href="get a quote.html">Get a Quote</a></li>
+    <li><a href="catalogue.html">Catalogue</a></li>
+  </ul>
+</nav>
+
+
+<!-- Background image container -->
+<div class="video-container">
+  <img src="img&vids/background.jpg" alt="WigWhisper background" class="video-bg">
+</div>
+
+  <!-- Overlay content -->
+  <div class="overlay">
+    <h1>Welcome to WigWhisper</h1>
+    <p>Elegance. Style. Confidence. One strand at a time.</p>
+    <a href="catalogue.html" class="cta-button">Explore Collection</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for everything to load
+      window.addEventListener('load', function() {
+        // Hide loader
+        const loader = document.querySelector('.loader');
+        loader.style.opacity = '0';
+        
+        // Remove loader after fade out
+        setTimeout(() => {
+          loader.style.display = 'none';
+          
+          // Animate in the content
+          const overlay = document.querySelector('.overlay');
+          const h1 = document.querySelector('h1');
+          const p = document.querySelector('p');
+          const button = document.querySelector('.cta-button');
+          
+          h1.style.opacity = '1';
+          h1.style.transform = 'translateY(0)';
+          
+          p.style.opacity = '1';
+          p.style.transform = 'translateY(0)';
+          
+          button.style.opacity = '1';
+          button.style.transform = 'translateY(0)';
+        }, 500);
+      });
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Video error handling
+      const video = document.querySelector('.video-bg');
+      video.addEventListener('error', function() {
+        console.log('Video failed to load, using fallback image');
+        const fallbackImg = video.querySelector('img');
+        if (fallbackImg) {
+          video.parentNode.insertBefore(fallbackImg, video);
+          video.style.display = 'none';
+          fallbackImg.style.display = 'block';
+        }
+      });
+      
+      // Check if video is playing (some browsers block autoplay)
+      setTimeout(() => {
+        if (video.paused) {
+          console.log('Video was blocked from autoplaying, attempting to play with user interaction');
+          document.body.addEventListener('click', function playVideo() {
+            video.play().catch(e => console.log('Video play failed:', e));
+            document.body.removeEventListener('click', playVideo);
+          }, { once: true });
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

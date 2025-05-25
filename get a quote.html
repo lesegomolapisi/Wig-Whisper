@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get a Quote - WigWhisper</title>
+  <link rel="stylesheet" href="sytle.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="get a quote.html" class="active">Get a Quote</a></li>
+      <li><a href="catalogue.html">Catalogue</a></li>
+    </ul>
+  </nav>
+
+  <!-- Quote Section -->
+  <section class="quote-section">
+    <div class="quote-header">
+      <h1>Request a Custom Wig Quote</h1>
+      <p>Tell us your vision, and we’ll bring it to life with elegance.</p>
+    </div>
+
+    <form class="quote-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Your Name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Your Email" required />
+
+      <label for="style">Preferred Wig Style</label>
+      <input type="text" id="style" placeholder="e.g., Curly, Straight, Bob, Lace Front" required />
+
+      <label for="color">Preferred Color</label>
+      <input type="text" id="color" placeholder="e.g., Natural Black, Blonde, Ombre" required />
+
+      <label for="length">Length (in inches)</label>
+      <input type="number" id="length" placeholder="e.g., 14, 18, 22" required />
+
+      <label for="details">Additional Details</label>
+      <textarea id="details" placeholder="Special requests or inspiration..." rows="5"></textarea>
+
+      <button type="submit">Get My Quote</button>
+    </form>
+  </section>
+</body>
+</html>

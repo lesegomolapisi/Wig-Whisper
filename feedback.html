@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback - WigWhisper</title>
+  <link rel="stylesheet" href="sytle.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
+      <li><a href="get a quote.html">Get a Quote</a></li>
+      <li><a href="catalogue.html">Catalogue</a></li>
+    </ul>
+  </nav>
+
+  <!-- Feedback Section -->
+  <section class="feedback-section">
+    <div class="feedback-header">
+      <h1>We’d Love Your Feedback</h1>
+      <p>Your experience helps us improve and serve you better.</p>
+    </div>
+
+    <form class="feedback-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your Name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Your Email" required />
+
+      <label for="rating">Rating</label>
+      <select id="rating" required>
+        <option value="" disabled selected>Select your rating</option>
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option>
+      </select>
+
+      <label for="comments">Comments</label>
+      <textarea id="comments" placeholder="Share your thoughts..." rows="5" required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+</body>
+</html>
